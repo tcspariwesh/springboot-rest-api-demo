@@ -55,9 +55,9 @@ public class UserController { // spring bean, act as request receiver
 	public void deleteUser(@PathVariable("id") Integer id) {
 		userService.deleteUser(id);
 	}
-	@PutMapping // METHOD+Path
-	private void updateUser(@RequestBody User user) {
-		userService.save(user);
+	@PutMapping ("/{id}")// METHOD+Path
+	private void updateUser(@PathVariable("id") Integer id, @RequestBody User user) {
+		userService.update(user, id);
 		System.out.println(user.getFirstName());
 	}
 }
