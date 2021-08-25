@@ -1,11 +1,13 @@
-package com.tcs.springbootdemo;
+package com.tcs.springbootdemo.service;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
+import com.tcs.springbootdemo.User;
+import com.tcs.springbootdemo.exceptions.UserNotFoundException;
+import com.tcs.springbootdemo.repository.IUserRepository;
 
 @Service
 public class UserService implements IUserService {
