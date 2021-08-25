@@ -32,4 +32,9 @@ public class UserService implements IUserService {
 		return user;
 	}
 
+	@Override
+	public void deleteUser(Integer id) {
+		userRepository.deleteById(id);
+	}
+
 }
