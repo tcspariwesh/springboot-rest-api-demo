@@ -2,7 +2,7 @@ package com.tcs.springbootdemo.service;
 
 import java.util.Optional;
 
-import com.tcs.springbootdemo.User;
+import com.tcs.springbootdemo.entity.User;
 
 public interface IUserService {
 	void save(User user);

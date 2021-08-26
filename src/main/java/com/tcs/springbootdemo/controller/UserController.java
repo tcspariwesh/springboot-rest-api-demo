@@ -2,6 +2,8 @@ package com.tcs.springbootdemo.controller;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +20,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tcs.springbootdemo.User;
+import com.tcs.springbootdemo.entity.User;
 import com.tcs.springbootdemo.exceptions.UserNotFoundException;
 import com.tcs.springbootdemo.service.IUserService;
 
 @RestController
+
 @RequestMapping("/user")
 public class UserController { // spring bean, act as request receiver
 
@@ -46,7 +49,7 @@ public class UserController { // spring bean, act as request receiver
 	}
 
 	@PostMapping
-	private void saveUser(@RequestBody User user) {
+	private void saveUser(@RequestBody @Valid User user) {
 		userService.save(user);
 		logger.debug(user.getFirstName());
 	}
