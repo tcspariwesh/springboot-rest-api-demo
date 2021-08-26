@@ -1,0 +1,565 @@
+<html >
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Certified Java Programmer Mock Exam</title>
+<meta content="noindex" name="robots">
+<style media="screen" type="text/css">
+<!--
+#question {font-size: 125%;}
+pre  {font: Arial}
+#strong1 {font-weight: bold}
+#bold {font-weight: bold}
+#codeFragment {font-family: "Courier"}
+#keyWord {font-family: "Courier"}
+#identifier {font-family: "Courier"}
+#type {font-family: "Courier"}
+#literal {font-family: "Courier"}
+#reservedWord {font-family: "Courier"}
+#keyTerm {font-style: italic}
+#codeFragmentBlock {font-family: "Courier"}
+#commandLine {font-family: "Courier"}
+#codeBlock {font-family: "Courier"}
+#statement {font-family: "Courier"}
+#expression {font-family: "Courier"}
+#superScript {font-size: 65%}
+#subScript {font-size: 65%}
+#output {font-family: "Courier"}
+-->
+</style>
+</head>
+<body>
+<h1 align="center">
+<br>
+
+</h1>
+<p>
+<h2 align="center">
+
+</h2>
+</p>
+<div align="center">
+
+</p>
+
+<p>
+
+</p>
+
+</div>
+<hr>
+<h2>Question 1</h2>
+<pre>
+class B {
+  private String name;
+  public B(String s) {name = s;}
+  protected void finalize() {System.out.print(name);}
+}
+class E {
+  public static void m() {
+    B x1 = new B("X"), y1 = new B("Y");
+  }
+  public static void main(String[] args) {
+    m(); System.gc();
+}}
+</pre>
+<p id="question">
+Which of the following could not be a result of attempting to
+compile and run the program? 
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>Prints: XY</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>Prints: YX</td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td>Prints: XXYY</td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td>Nothing is printed.</td>
+</tr>
+<tr valign="top">
+<td>e.&nbsp;</td><td>None of the above</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 2</h2>
+<pre>
+void m1() {
+  Q q1 = null;
+  for (int i = 0; i &lt; 10; i++) {
+    q1 = new Q();   // 1
+    m2(q1);         // 2
+  }
+  System.out.print("All done"); // 3
+}
+</pre>
+<p id="question">
+When the processing of line 3 begins, how many objects
+of type Q that were created at line 1 have become eligible
+for garbage collection? 
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>0</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>1</td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td>9</td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td>10</td>
+</tr>
+<tr valign="top">
+<td>e.&nbsp;</td><td>Indeterminate.</td>
+</tr>
+<tr valign="top">
+<td>f.&nbsp;</td><td>Compile-time error</td>
+</tr>
+<tr valign="top">
+<td>g.&nbsp;</td><td>Run-time error</td>
+</tr>
+<tr valign="top">
+<td>h.&nbsp;</td><td>None of the above</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 3</h2>
+<pre>
+class Q {
+  private int id;
+  protected void finalize() {System.out.print(id);}
+  public Q(int i) {id = i;}
+}
+class R {
+  public static void main(String[] args) {
+    Q q1 = null;
+    for (int i = 0; i &lt; 10; i++) {q1 = new Q(i);} // 1
+    System.gc();     // 2
+}}
+</pre>
+<p id="question">
+When the processing of line 2 begins, how many objects
+of type Q that were created at line 1 have become eligible
+for garbage collection? 
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>0</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>1</td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td>9</td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td>10</td>
+</tr>
+<tr valign="top">
+<td>e.&nbsp;</td><td>Indeterminate.</td>
+</tr>
+<tr valign="top">
+<td>f.&nbsp;</td><td>Compile-time error</td>
+</tr>
+<tr valign="top">
+<td>g.&nbsp;</td><td>Run-time error</td>
+</tr>
+<tr valign="top">
+<td>h.&nbsp;</td><td>None of the above</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 4</h2>
+<pre>
+class I {
+  private I other;
+  public void other(I i) {other = i;}
+}
+class J {
+  private void m1() {
+    I i1 = new I(), i2 = new I();
+    I i3 = new I(), i4 = new I();
+    i1.other(i3); i2.other(i1);
+    i3.other(i2); i4.other(i4);
+  }
+  public static void main (String[] args) {
+    new J().m1();
+}}
+</pre>
+<p id="question">
+Which object is not eligible for garbage collection after
+method <span id="identifier">m1</span> returns? 
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>i1</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>i2</td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td>i3</td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td>i4</td>
+</tr>
+<tr valign="top">
+<td>e.&nbsp;</td><td>Compile-time error</td>
+</tr>
+<tr valign="top">
+<td>f.&nbsp;</td><td>Run-time error</td>
+</tr>
+<tr valign="top">
+<td>g.&nbsp;</td><td>None of the above</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 5</h2>
+<pre>
+class I {
+  private String name;
+  public I(String s) {name = s;}
+  private I other;
+  public void other(I i) {other = i;}
+}
+class J {
+  private I i1 = new I("A"), i2 = new I("B"), i3 = new I("C");
+  private void m1() {
+    i1.other(i2); i2.other(i1); i3.other(i3);
+    i1 = i3; i2 = i3;
+    m2();
+  }
+  private void m2() {/* Do amazing things. */}
+  public static void main (String[] args) {
+    new J().m1();
+}}
+</pre>
+<p id="question">
+Which of the three objects, A, B or C, is not eligible for
+garbage collection when method 
+<span id="identifier">m2</span>
+begins to execute? 
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>A</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>B</td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td>C</td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td>None of the above</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 6</h2>
+<pre>
+class I {
+  private String name;
+  protected void finalize() {System.out.print(name);}
+  public I(String s) {name = s;}
+}
+class J {
+  private static void m1(I[] a1) {
+    a1[0] = a1[1] = a1[2] = null;
+  }
+  public static void main (String[] args) {
+    I[] a1 = new I[3];   // 1
+    a1[0] = new I("A");  // 2
+    a1[1] = new I("B");  // 3
+    a1[2] = new I("C");  // 4
+    m1(a1);
+    System.gc();
+}}
+</pre>
+<p id="question">
+After method 
+<span id="identifier">m1</span>
+returns, the object created on which 
+line is not eligible for garbage collection?
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>1</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>2</td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td>3</td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td>4</td>
+</tr>
+<tr valign="top">
+<td>e.&nbsp;</td><td>None of the above</td>
+</tr>
+<tr valign="top">
+<td>f.&nbsp;</td><td>Compile-time error</td>
+</tr>
+<tr valign="top">
+<td>g.&nbsp;</td><td>Run-time error</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 7</h2>
+<pre>
+class I {
+  private String name;
+  public String toString() {return name;}
+  public I(String s) {name = s;}
+}
+class J {
+  private static void m1(I[] a1) {a1 = null;}
+  public static void main (String[] args) {
+    I[] a1 = new I[3];   // 1
+    a1[0] = new I("A");  // 2
+    a1[1] = new I("B");  // 3
+    a1[2] = new I("C");  // 4
+    m1(a1);
+    for (int i = 0; i &lt; a1.length; i++) {
+      System.out.print(a1[i]);
+}}}
+</pre>
+<p id="question">
+After method 
+<span id="identifier">m1</span>
+returns, the object created on which 
+line is eligible for garbage collection?
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>1</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>2</td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td>3</td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td>4</td>
+</tr>
+<tr valign="top">
+<td>e.&nbsp;</td><td>Compile-time error</td>
+</tr>
+<tr valign="top">
+<td>f.&nbsp;</td><td>Run-time error</td>
+</tr>
+<tr valign="top">
+<td>g.&nbsp;</td><td>None of the above</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 8</h2>
+<pre>
+class A {
+  private String name;
+  private A otherA;
+  public A(String name) {this.name = name;}
+  public void other(A otherA) {this.otherA = otherA;}
+  public A other() {return otherA;}
+  public String toString() {return name;}
+  protected void finalize() {System.out.print(name);}
+}
+class B {
+  public static void m1() {
+    A a1 = new A("A1"), a2 = new A("A2"), a3 = new A("A3"), a0 = a3;
+    a1.other(a2); a2.other(a3); a3.other(a1);
+    for(int i = 0; i&lt;4; i++){System.out.print(a0 = a0.other());}
+  }
+  public static void main(String[] args) {m1(); System.gc();}
+}
+</pre>
+<p id="question">
+Which of the following could be a result of attempting to
+compile and run the program? 
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>A1A2A3A1</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>A0A0A0A0A1A2A3</td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td>A1A2A3A1A2A3</td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td>A1A2A3A1A1A2A3</td>
+</tr>
+<tr valign="top">
+<td>e.&nbsp;</td><td>A1A2A3A1A3A2A1</td>
+</tr>
+<tr valign="top">
+<td>f.&nbsp;</td><td>A0A1A2A3A1A2A3</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 9</h2>
+<pre>
+class B {
+  private String name;
+  public B(String name) {this.name = name;}
+  public String toString() {return name;}
+  protected void finalize() {System.out.print(name);}
+}
+class H {
+  static B ba = new B("Ba");
+  static int i = 1;
+  static B m1(B b) {return b = new B("B" + i++);}
+  public static void main (String[] args) {
+    B x = m1(ba); m1(x); 
+    System.out.println(", " + ba + ", " + x);
+}}
+</pre>
+<p id="question">
+Which of the following could be a result of attempting to
+compile and run the program? 
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>Ba, B1, B2</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>B1, Ba, B2</td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td>, Ba, B1</td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td>B2, Ba, B1</td>
+</tr>
+<tr valign="top">
+<td>e.&nbsp;</td><td>BaB1b2, null, null</td>
+</tr>
+<tr valign="top">
+<td>f.&nbsp;</td><td>B1B2, ba, null</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 10</h2>
+<pre>
+class B {
+  private String name;
+  public B(String name) {this.name = name;}
+  public String toString() {return name;}
+  protected void finalize() {System.out.print(name);}
+}
+class J {
+  static B bc;
+  static int i = 1;
+  static B m1(B b) {bc = b; return new B("B" + i++);}
+  public static void main (String[] args) {
+    B x = m1(new B("Ba")), y = m1(new B("Bb"));
+    System.out.println(", " + x + ", " + y + ", " + bc);
+}}
+</pre>
+<p id="question">
+Which of the following could be a result of attempting to
+compile and run the program? 
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>BaBb, B1, B2, B2</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>B1B2, null, null, Bb</td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td>, Ba, Bb, Bb</td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td>BaBbB1B2, null, null, null</td>
+</tr>
+<tr valign="top">
+<td>e.&nbsp;</td><td>Ba, B1, B2, Bb</td>
+</tr>
+<tr valign="top">
+<td>f.&nbsp;</td><td>Compile-time error</td>
+</tr>
+<tr valign="top">
+<td>g.&nbsp;</td><td>Run-time error</td>
+</tr>
+<tr valign="top">
+<td>h.&nbsp;</td><td>None of the above</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 11</h2>
+<pre>
+class I {
+  private String name;
+  public String name() {return name;}
+  public I(String s) {name = s;}
+}
+class J {
+  public static void m1(I i) {i = null;}
+  public static void main (String[] args) {
+    I i = new I("X");           // 1
+    m1(i);                      // 2
+    System.out.print(i.name()); // 3
+}}
+</pre>
+<p id="question">
+Which of the following is a true statement? 
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>The object created a line 1 is eligible for garbage collection after line 2.</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>A <span id="type">NullPointerException</span> is generated at line 3.</td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td>The program compiles, runs and prints X.</td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td>The program fails to compile.</td>
+</tr>
+<tr valign="top">
+<td>e.&nbsp;</td><td>None of the above</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<header></header>
+<hr>
+<center>
+<font size="-1"><em>
+    Copyright &copy; 2002-2004, <br>
+    All rights reserved.
+  </em></font>
+</center>
+</body>
+</html>
+<!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://hostingprod.com/js_source/geov2.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1139304442" alt="setstats" border="0" width="1" height="1"></noscript>
+<IMG SRC="http://geo.yahoo.com/serv?s=76001404&t=1139304442" ALT=1 WIDTH=1 HEIGHT=1>

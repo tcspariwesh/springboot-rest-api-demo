@@ -1,0 +1,334 @@
+<html >
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Certified Java Programmer Mock Exam</title>
+<meta content="noindex" name="robots">
+<style media="screen" type="text/css">
+<!--
+#question {font-size: 125%;}
+pre  {font: Arial}
+#strong1 {font-weight: bold}
+#bold {font-weight: bold}
+#codeFragment {font-family: "Courier"}
+#keyWord {font-family: "Courier"}
+#identifier {font-family: "Courier"}
+#type {font-family: "Courier"}
+#literal {font-family: "Courier"}
+#reservedWord {font-family: "Courier"}
+#keyTerm {font-style: italic}
+#codeFragmentBlock {font-family: "Courier"}
+#commandLine {font-family: "Courier"}
+#codeBlock {font-family: "Courier"}
+#statement {font-family: "Courier"}
+#expression {font-family: "Courier"}
+#superScript {font-size: 65%}
+#subScript {font-size: 65%}
+#output {font-family: "Courier"}
+-->
+</style>
+</head>
+<body>
+
+<p>
+<h2 align="center">
+
+</h2>
+</p>
+<div align="center">
+<p align="center">
+<p align="center">
+ 
+
+</div>
+<hr>
+<h2>Question 1</h2>
+<p id="question">
+Suppose that an instance of class 
+<span id="type">C</span>
+has legal implementations of the 
+<span id="identifier">hashCode</span>
+and 
+<span id="identifier">equals</span>
+methods.
+Within any one execution of the Java application, the
+hash code
+contract requires that each invocation of the 
+<span id="identifier">hashCode</span> 
+method
+on the same instance of class 
+<span id="type">C</span>
+must consistently return the same result as long as the
+fields used for the 
+<span id="identifier">equals</span>
+comparison remain unchanged.
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>false</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>true</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 2</h2>
+<p id="question">
+If two instances of a class type
+are equal according to the <span id="identifier">equals</span> method,
+then the same integer value must be returned by the 
+<span id="identifier">hashCode</span> method of the two objects.
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>false</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>true</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 3</h2>
+<p id="question">
+If two instances of a class type
+are not equal according to the 
+<span id="identifier">equals</span>
+method,
+then the same integer value must not be returned by the 
+<span id="identifier">hashCode</span> 
+method of the two objects.
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>false</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>true</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 4</h2>
+<pre>
+class A {
+  static void m1 (B a, B b, B c, B d, B e, B f, B g, B h) {
+    if (a.equals(b)) {System.out.print("A");}
+    if (!c.equals(d)) {System.out.print("B");}
+    if (e.hashCode() == f.hashCode()) {System.out.print("C");}
+    if (g.hashCode() != h.hashCode()) {System.out.print("D");}
+}}
+</pre>
+<p id="question">
+Suppose that method 
+<span id="identifier">m1</span>
+is invoked with eight instances
+of the same class and the output is
+<span id="literal">ABCD</span>.
+If the
+<textBook:name>B.equals</textBook:name>
+and 
+<textBook:name>B.hashCode</textBook:name> 
+methods are implemented 
+according to the 
+hash code
+contract, then which of the following
+statements must always be true?</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td><span id="expression">(a.hashCode() == b.hashCode())</span></td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td><span id="expression">(c.hashCode() != d.hashCode())</span></td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td><span id="expression">(e.equals(f))</span></td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td><span id="expression">(!g.equals(h))</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 5</h2>
+<pre>
+
+class B {
+  private int i1;
+  public int hashCode() {return 1;}
+}
+class C {
+  private int i1;
+  public int hashCode() {return -1;}
+}
+class D {
+  private int i1;
+  public int hashCode() {return i1;}
+}
+</pre>
+<p id="question">
+Suppose that the 
+<span id="identifier">equals</span>
+method of classes
+<span id="type">B</span>,
+<span id="type">C</span>
+and
+<span id="type">D</span>
+all make use of the value of the 
+<span id="type">int</span> 
+variable, 
+<span id="identifier">i1</span>.  
+Which class has a 
+<span id="identifier">hashCode</span>
+method that is not consistent with the hash code contract?
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td>B</td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td>C</td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td>D</td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td>None of the above</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 6</h2>
+<p id="question">
+Which of the following classes override both the 
+<span id="identifier">equals</span>
+and 
+<span id="identifier">hashCode</span>
+methods?
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td><span id="type">java.lang.Byte</span></td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td><span id="type">java.lang.Integer</span></td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td><span id="type">java.util.Vector</span></td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td><span id="type">java.lang.String</span></td>
+</tr>
+<tr valign="top">
+<td>e.&nbsp;</td><td><span id="type">java.lang.StringBuffer</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 7</h2>
+<pre>
+class A {
+  int i1, i2;
+  public void setI1(int i) {i1 = i;}
+  public int getI1() {return i1;}
+  public void setI2(int i) {i2 = i;}
+  public int getI2() {return i2;}
+  public A(int ii1, int ii2) {i1 = ii1; i2 = ii2;}
+  public boolean equals(Object obj) {
+    if (obj instanceof A) {
+      return (i1 == ((A)obj).getI1());
+    }
+    return false;
+  }
+  public int hashCode() {
+    // Insert statement here.
+}}
+</pre>
+<p id="question">
+Which of the following statements could be inserted at the specified 
+location without violating the hash code contract?
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td><span id="codeFragment">return 31;</span></td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td><span id="codeFragment">return getI1();</span></td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td><span id="codeFragment">return getI2();</span></td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td><span id="codeFragment">return 31 * getI1() + getI2();</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Question 8</h2>
+<pre>
+class A {
+  int i1, i2;
+  public void setI1(int i) {i1 = i;}
+  public int getI1() {return i1;}
+  public void setI2(int i) {i2 = i;}
+  public int getI2() {return i2;}
+  public A(int ii1, int ii2) {i1 = ii1; i2 = ii2;}
+  public boolean equals(Object obj) {
+    if (obj instanceof A) {
+      return (i1 == ((A)obj).getI1()) &amp; (i2 == ((A)obj).getI2());
+    }
+    return false;
+  }
+  public int hashCode() {
+    // Insert statement here.
+}}
+</pre>
+<p id="question">
+If inserted at the specified 
+location, which of the following statements would produce the most 
+efficient 
+<span id="identifier">hashCode</span>
+method?
+</p>
+<table border="0">
+<tbody>
+<tr valign="top">
+<td>a.&nbsp;</td><td><span id="codeFragment">return 31;</span></td>
+</tr>
+<tr valign="top">
+<td>b.&nbsp;</td><td><span id="codeFragment">return getI1();</span></td>
+</tr>
+<tr valign="top">
+<td>c.&nbsp;</td><td><span id="codeFragment">return getI2();</span></td>
+</tr>
+<tr valign="top">
+<td>d.&nbsp;</td><td><span id="codeFragment">return getI1() + getI2();</span></td>
+</tr>
+<tr valign="top">
+<td>e.&nbsp;</td><td><span id="codeFragment">return 31 * getI1() + getI2();</span></td>
+</tr>
+<tr valign="top">
+<td>f.&nbsp;</td><td>None of the above</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<header></header>
+<hr>
+<center>
+<font size="-1"><em>
+    Copyright &copy; 2002-2004, <br>
+    All rights reserved.
+  </em></font>
+</center>
+</body>
+</html>
+<!-- text below generated by server. PLEASE REMOVE --><!-- Counter/Statistics data collection code --><script language="JavaScript" src="http://hostingprod.com/js_source/geov2.js"></script><script language="javascript">geovisit();</script><noscript><img src="http://visit.webhosting.yahoo.com/visit.gif?us1139304818" alt="setstats" border="0" width="1" height="1"></noscript>
+<IMG SRC="http://geo.yahoo.com/serv?s=76001404&t=1139304818" ALT=1 WIDTH=1 HEIGHT=1>
