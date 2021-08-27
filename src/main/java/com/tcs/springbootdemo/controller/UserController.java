@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tcs.springbootdemo.entity.User;
@@ -25,7 +26,6 @@ import com.tcs.springbootdemo.exceptions.UserNotFoundException;
 import com.tcs.springbootdemo.service.IUserService;
 
 @RestController
-
 @RequestMapping("/user")
 public class UserController { // spring bean, act as request receiver
 
@@ -49,12 +49,10 @@ public class UserController { // spring bean, act as request receiver
 	}
 
 	@PostMapping
+	@ResponseStatus(code = HttpStatus.CREATED)
 	private void saveUser(@RequestBody @Valid User user) {
-		try {
 			userService.save(user);
-		} catch (Exception e) {
-			logger.error(e.getCause().toString());
-		}
+		
 		logger.debug(user.getFirstName());
 	}
 
